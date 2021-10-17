@@ -24,8 +24,8 @@ func main() {
 func handleRequest(w http.ResponseWriter, r *http.Request) {
 	var err error
 	switch r.Method {
-	// case "GET":
-	// 	err = handleGet(w, r)
+	case "GET":
+		err = handleGet(w, r)
 	case "POST":
 		err = handlePost(w, r)
 	case "PUT":
@@ -93,7 +93,7 @@ func handleDelete(w http.ResponseWriter, r *http.Request) (err error) {
 	return
 }
 
-func hadleGet(w http.ResponseWriter, r *http.Request) (err error) {
+func handleGet(w http.ResponseWriter, r *http.Request) (err error) {
 	id, err := strconv.Atoi(path.Base(r.URL.Path))
 	if err != nil {
 		return
